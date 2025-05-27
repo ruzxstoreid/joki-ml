@@ -1,20 +1,20 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
+// Firebase config kamu
 const firebaseConfig = {
-  apiKey: "AIzaSyCBhrErn74FZfjKZettcfL7uPTTo_1LZZLU",
-  authDomain: "ulasan-joki.firebaseapp.com",
-  projectId: "ulasan-joki",
-  storageBucket: "ulasan-joki.appspot.com",
-  messagingSenderId: "275710139741",
-  appId: "1:275710139741:web:477907526df9e0d64c5cb4"
+  apiKey: "AIzaSyAtLPR6Vs2rVtiQqxj6xUsV1pp76YNf7R8",
+  authDomain: "joki-ml-ruzx.firebaseapp.com",
+  projectId: "joki-ml-ruzx",
+  storageBucket: "joki-ml-ruzx.appspot.com",
+  messagingSenderId: "121140673730",
+  appId: "1:121140673730:web:0b9afbfe79e269fd818f5b"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Pemesanan
+// Kirim data pemesanan
 document.getElementById("orderForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = {
@@ -24,28 +24,37 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
     wa: document.getElementById("wa").value,
     tierAwal: document.getElementById("tierAwal").value,
     tier: document.getElementById("tier").value,
-    catatan: document.getElementById("catatan").value
+    catatan: document.getElementById("catatan").value,
+    waktu: new Date()
   };
-  await addDoc(collection(db, "pesanan"), data);
-  alert("Pesanan berhasil dikirim!");
-  e.target.reset();
+  try {
+    await addDoc(collection(db, "pesanan"), data);
+    alert("Pesanan berhasil dikirim!");
+    e.target.reset();
+  } catch (err) {
+    alert("Gagal mengirim pesanan: " + err.message);
+  }
 });
 
-// Ulasan
+// Kirim dan tampilkan ulasan
 document.getElementById("reviewForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const nama = document.getElementById("reviewNama").value;
   const pesan = document.getElementById("reviewPesan").value;
-  await addDoc(collection(db, "ulasan"), { nama, pesan });
-  alert("Ulasan berhasil dikirim!");
-  tampilkanUlasan();
-  e.target.reset();
+  try {
+    await addDoc(collection(db, "ulasan"), { nama, pesan });
+    alert("Ulasan berhasil dikirim!");
+    e.target.reset();
+    tampilkanUlasan();
+  } catch (err) {
+    alert("Gagal mengirim ulasan: " + err.message);
+  }
 });
 
 async function tampilkanUlasan() {
   const list = document.getElementById("reviewList");
-  const snap = await getDocs(collection(db, "ulasan"));
   list.innerHTML = "";
+  const snap = await getDocs(collection(db, "ulasan"));
   snap.forEach(doc => {
     const d = doc.data();
     list.innerHTML += `<p><strong>${d.nama}</strong>: ${d.pesan}</p><hr>`;
