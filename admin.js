@@ -4,10 +4,10 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 
 // Konfigurasi Firebase kamu
 const firebaseConfig = {
-  apiKey: "AIzaSyAtLPR6Vs2rVtiQqxj6xUsV1pp76YNf7R8",
+ apiKey: "AIzaSyATLpR6vs2rVtiQqxj6xUsV1pp76YNf7R8",
   authDomain: "joki-ml-ruzx.firebaseapp.com",
   projectId: "joki-ml-ruzx",
-  storageBucket: "joki-ml-ruzx.appspot.com",
+  storageBucket: "joki-ml-ruzx.firebasestorage.app",
   messagingSenderId: "121140673730",
   appId: "1:121140673730:web:0b9afbfe79e269fd818f5b"
 };
