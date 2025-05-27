@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-// Konfigurasi Firebase
+// Konfigurasi Firebase kamu
 const firebaseConfig = {
   apiKey: "AIzaSyAtLPR6Vs2rVtiQqxj6xUsV1pp76YNf7R8",
   authDomain: "joki-ml-ruzx.firebaseapp.com",
@@ -41,7 +41,7 @@ async function loadData() {
   pesananSnap.forEach(doc => {
     const d = doc.data();
     pList.innerHTML += `
-      <div>
+      <div style="margin-bottom:12px">
         <strong>${d.nama}</strong> (ID: ${d.idml}, Server: ${d.server})<br/>
         WA: ${d.wa}<br/>
         Tier: ${d.tierAwal} → ${d.tier}<br/>
