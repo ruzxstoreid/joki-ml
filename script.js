@@ -3,12 +3,12 @@ import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.c
 
 // Firebase config kamu
 const firebaseConfig = {
-  apiKey: "AIzaSyAtLPR6Vs2rVtiQqxj6xUsV1pp76YNf7R8",
-  authDomain: "joki-ml-ruzx.firebaseapp.com",
-  projectId: "joki-ml-ruzx",
-  storageBucket: "joki-ml-ruzx.appspot.com",
-  messagingSenderId: "121140673730",
-  appId: "1:121140673730:web:0b9afbfe79e269fd818f5b"
+   apiKey: "AIzaSyAu31qZuhYD1GdiFnJscUUKbxh36Ak0O40",
+  authDomain: "joki-ml-ruzx-358bf.firebaseapp.com",
+  projectId: "joki-ml-ruzx-358bf",
+  storageBucket: "joki-ml-ruzx-358bf.firebasestorage.app",
+  messagingSenderId: "458918451471",
+  appId: "1:458918451471:web:02f659cae9815fa040067a"
 };
 
 const app = initializeApp(firebaseConfig);
