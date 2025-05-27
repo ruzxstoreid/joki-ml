@@ -1,0 +1,44 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+.logo {
+  height: 80px;
+  margin-bottom: 10px;
+}
+h1 {
+  margin: 0;
+}
+form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+input, textarea {
+  padding: 10px;
+  margin: 5px 0;
+}
+button {
+  padding: 10px;
+  background: #00ff66;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  margin-top: 10px;
+}
+section {
+  padding: 20px;
+}
+#reviewList {
+  margin-top: 20px;
+}
