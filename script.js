@@ -22,6 +22,7 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
     idml: document.getElementById("idml").value,
     server: document.getElementById("server").value,
     wa: document.getElementById("wa").value,
+    tierAwal: document.getElementById("tierAwal").value,
     tier: document.getElementById("tier").value,
     catatan: document.getElementById("catatan").value
   };
