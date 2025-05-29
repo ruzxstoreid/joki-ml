@@ -61,3 +61,27 @@ async function tampilkanUlasan() {
   });
 }
 tampilkanUlasan();
+
+document.getElementById("orderForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const id = document.getElementById("id").value;
+  const server = document.getElementById("server").value;
+  const wa = document.getElementById("wa").value;
+  const tierAwal = document.getElementById("tierAwal").value;
+  const tierTujuan = document.getElementById("tierTujuan").value;
+  const catatan = document.getElementById("catatan").value;
+
+  const pesan = `Halo kak, saya ingin memesan joki Mobile Legends:\n\n` +
+                `Nama: ${nama}\n` +
+                `ID: ${id} (${server})\n` +
+                `No WA: ${wa}\n` +
+                `Tier Awal: ${tierAwal}\n` +
+                `Tier Tujuan: ${tierTujuan}\n` +
+                `Catatan: ${catatan}`;
+
+  const url = `https://wa.me/6282324101206?text=${encodeURIComponent(pesan)}`;
+  window.open(url, '_blank');
+});
+
