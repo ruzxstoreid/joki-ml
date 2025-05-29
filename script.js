@@ -36,32 +36,6 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
   }
 });
 
-// Kirim dan tampilkan ulasan
-document.getElementById("reviewForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const nama = document.getElementById("reviewNama").value;
-  const pesan = document.getElementById("reviewPesan").value;
-  try {
-    await addDoc(collection(db, "ulasan"), { nama, pesan });
-    alert("Ulasan berhasil dikirim!");
-    e.target.reset();
-    tampilkanUlasan();
-  } catch (err) {
-    alert("Gagal mengirim ulasan: " + err.message);
-  }
-});
-
-async function tampilkanUlasan() {
-  const list = document.getElementById("reviewList");
-  list.innerHTML = "";
-  const snap = await getDocs(collection(db, "ulasan"));
-  snap.forEach(doc => {
-    const d = doc.data();
-    list.innerHTML += `<p><strong>${d.nama}</strong>: ${d.pesan}</p><hr>`;
-  });
-}
-tampilkanUlasan();
-
 document.getElementById("orderForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
